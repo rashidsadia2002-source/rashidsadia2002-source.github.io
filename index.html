@@ -481,20 +481,35 @@ footer {
 }
 
 /* Animation only runs when the section enters the screen. */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
 .reveal.play-animation {
-  animation: revealIn .75s cubic-bezier(.2,.7,.2,1) both;
+  animation: revealIn 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes revealIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(55px);
+    filter: blur(4px);
   }
-  to {
+
+  65% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
+
 
 /* MOBILE */
 
@@ -886,7 +901,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 
 }, {
-  threshold: 0.08
+  threshold: 0.03
 });
 
 document.querySelectorAll(".reveal").forEach(element => {
