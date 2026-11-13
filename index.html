@@ -488,28 +488,27 @@ footer {
 }
 
 .reveal.play-animation {
-  animation: revealIn 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes revealIn {
   0% {
     opacity: 0;
-    transform: translateY(55px);
-    filter: blur(4px);
+    transform: translateY(75px) scale(0.97);
+    filter: blur(5px);
   }
 
-  65% {
+  60% {
     opacity: 1;
     filter: blur(0);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     filter: blur(0);
   }
 }
-
 
 /* MOBILE */
 
