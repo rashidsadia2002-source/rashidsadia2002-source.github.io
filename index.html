@@ -16,7 +16,7 @@
   --surface: #191919;
   --white: #f7f7f5;
   --muted: #a5a5a5;
-  --accent: #b9ff65;
+  --accent: #568BFF;
   --line: rgba(255,255,255,.12);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -643,15 +643,17 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+    } else {
+      entry.target.classList.remove("visible");
     }
   });
-}, { threshold: 0.12 });
+}, {
+  threshold: 0.12
+});
 
 document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
-});
-</script>
+})
 
 </body>
 </html>
