@@ -73,7 +73,12 @@ nav {
 }
 
 .logo span { color: var(--blue); }
-
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -594,7 +599,9 @@ footer {
 <header>
   <div class="container">
     <nav>
-      <a href="#home" class="logo">JACKSON<span>EDITZ.</span></a>
+      <a href="#home" class="logo">
+  <img src="logo.png" alt="Jackson Editz Logo">
+</a>
 
       <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
@@ -845,7 +852,9 @@ footer {
 
 <footer>
   <div class="container footer-inner">
-    <a href="#home" class="logo">JACKSON<span>EDITZ.</span></a>
+    <a href="#home" class="logo">
+  <img src="logo.png" alt="Jackson Editz Logo">
+</a>
 
     <p>© <span id="year"></span> Jackson Editz. All rights reserved.</p>
 
