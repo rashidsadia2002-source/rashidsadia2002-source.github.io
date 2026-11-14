@@ -1077,18 +1077,19 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin: 24px 0 0;
-  padding: 14px 24px;
+  gap: 8px;
+  width: fit-content;
+  margin: 18px auto 0;
+  padding: 8px 14px;
   border: 1px solid rgba(37,211,102,.45);
-  border-radius: 50px;
+  border-radius: 30px;
   color: #eafff1;
-  background: rgba(37,211,102,.12);
+  background: rgba(37,211,102,.10);
   text-decoration: none;
+  font-size: 13px;
   font-weight: 600;
   transition: .3s ease;
 }
-
 .contact-whatsapp svg {
   width: 22px;
   height: 22px;
@@ -1100,7 +1101,12 @@ footer {
   border-color: #25D366;
   box-shadow: 0 8px 25px rgba(37,211,102,.15);
 }
-
+.contact-number {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+}
 </style>
 </head>
 
@@ -1387,6 +1393,7 @@ footer {
       </svg>
 
       <span>Chat on WhatsApp</span>
+      <p class="contact-number">03074203690</p>
     </a>
 
     <p class="contact-note">
