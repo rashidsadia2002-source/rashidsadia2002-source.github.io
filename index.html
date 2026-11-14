@@ -494,40 +494,140 @@ section { padding: 110px 0; }
   margin-top: 20px;
 }
 
-/* ABOUT */
+/* ABOUT — PREMIUM STUDIO INTRO */
 
 .about {
-  background: #F2F4F8;
-  color: #151B28;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(40,105,220,.16), transparent 38%),
+    linear-gradient(135deg, #0D1422 0%, #0A101C 58%, #0D1728 100%);
+  color: var(--white);
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: -230px;
+  top: 5%;
+  border: 1px solid rgba(112,163,255,.09);
+  border-radius: 50%;
+  box-shadow: 0 0 0 45px rgba(112,163,255,.025),
+              0 0 0 90px rgba(112,163,255,.018);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 75px;
+  grid-template-columns: .95fr 1.05fr;
+  gap: clamp(42px, 7vw, 90px);
   align-items: center;
 }
 
-.about .section-label { color: #376CCB; }
-.about .section-description { color: #626B7A; }
+.about .section-label {
+  color: #83B2FF;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about .section-label::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, #5798FF, transparent);
+}
+
+.about .section-heading {
+  color: #F4F7FF;
+  max-width: 600px;
+}
+
+.about .section-heading span { color: #75A9FF; }
+
+.about .section-description {
+  color: #A7B3C7;
+  max-width: 560px;
+}
 
 .about-mark {
-  min-height: 340px;
-  border-radius: 8px;
-  background: linear-gradient(135deg,#DFE8F8,#F8FAFD);
+  min-height: 390px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(133,176,255,.22);
+  background:
+    radial-gradient(circle at 50% 48%, rgba(50,119,240,.22), transparent 34%),
+    linear-gradient(145deg, rgba(25,43,72,.92), rgba(10,18,32,.96));
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #D5DDEB;
+  box-shadow: 0 28px 75px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05);
 }
+
+.about-mark::before,
+.about-mark::after {
+  content: "";
+  position: absolute;
+  width: 270px;
+  height: 270px;
+  border: 1px solid rgba(100,159,255,.25);
+  border-radius: 50%;
+  animation: aboutOrbit 24s linear infinite;
+}
+
+.about-mark::after {
+  width: 335px;
+  height: 335px;
+  border-color: rgba(100,159,255,.11);
+  animation-direction: reverse;
+  animation-duration: 34s;
+}
+
+@keyframes aboutOrbit { to { transform: rotate(360deg); } }
 
 .about-mark strong {
+  position: relative;
+  z-index: 1;
   font-family: Manrope,sans-serif;
-  font-size: 110px;
-  letter-spacing: -9px;
+  font-size: clamp(100px, 12vw, 150px);
+  letter-spacing: -12px;
+  color: #F2F6FF;
+  text-shadow: 0 0 38px rgba(79,145,255,.24);
 }
 
-.about-mark span { color: var(--blue); }
+.about-mark span { color: #5D9CFF; }
+
+.about-mark-label {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  color: #9EB4D6;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 27px;
+}
+
+.about-point {
+  padding: 10px 13px;
+  border: 1px solid rgba(137,174,235,.19);
+  border-radius: 4px;
+  color: #C5D4EB;
+  background: rgba(255,255,255,.035);
+  font-size: 11px;
+  letter-spacing: .3px;
+}
 
 /* SERVICES */
 
@@ -706,41 +806,36 @@ footer {
   font-size: 12px;
 }
 
-/* SAFE REPEATING SCROLL ANIMATIONS */
-
-/* Content is visible by default, even if JavaScript is unavailable. */
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-/* Animation only runs when the section enters the screen. */
+/* SMOOTH ONE-TIME SCROLL REVEALS */
 
 .reveal {
   opacity: 1;
   transform: none;
 }
 
-.reveal.play-animation {
-  animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* Only hide elements when JavaScript is available to reveal them. */
+.reveal-enabled .reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
 }
 
-@keyframes revealIn {
-  0% {
-    opacity: 0;
-    transform: translateY(75px) scale(0.97);
-    filter: blur(5px);
-  }
+.reveal-enabled .reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
 
-  60% {
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled .reveal,
+  .reveal-enabled .reveal.is-visible {
     opacity: 1;
-    filter: blur(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: none;
+    transition: none;
+    will-change: auto;
   }
 }
 
@@ -831,7 +926,12 @@ footer {
     gap: 35px;
   }
 
-  .about-mark { min-height: 220px; }
+  .about-mark { min-height: 270px; }
+  .about-mark::before { width: 205px; height: 205px; }
+  .about-mark::after { width: 255px; height: 255px; }
+  .about-mark-label { left: 16px; bottom: 16px; font-size: 8px; }
+  .about-points { gap: 8px; }
+  .about-point { font-size: 10px; padding: 9px 10px; }
 
   .services-grid,
   .portfolio-grid {
@@ -934,15 +1034,16 @@ footer {
 <section class="about" id="about">
   <div class="container about-grid">
 
-    <div class="about-mark">
+    <div class="about-mark reveal">
       <strong>J<span>E.</span></strong>
+      <div class="about-mark-label">Jackson Editz · Creative Studio</div>
     </div>
 
-    <div class="reveal">
+    <div class="about-copy reveal">
       <div class="section-label">01 / About Us</div>
 
       <h2 class="section-heading">
-        Creativity meets visual storytelling.
+        Creativity meets <span>visual storytelling.</span>
       </h2>
 
       <p class="section-description">
@@ -951,6 +1052,12 @@ footer {
         From short-form content to promotional videos, we aim
         to make every frame meaningful.
       </p>
+
+      <div class="about-points">
+        <span class="about-point">Video Editing</span>
+        <span class="about-point">Motion Graphics</span>
+        <span class="about-point">Visual Storytelling</span>
+      </div>
     </div>
 
   </div>
@@ -1186,35 +1293,34 @@ if (heroSection && window.matchMedia("(pointer: fine)").matches &&
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-/* REPEATING SCROLL ANIMATIONS */
+/* SMOOTH ONE-TIME SCROLL REVEALS
+   Each section animates only the first time it enters the viewport.
+   It stays visible afterward, so scrolling up/down won't cause flicker. */
 
-const observer = new IntersectionObserver((entries) => {
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+    "IntersectionObserver" in window) {
+  document.documentElement.classList.add("reveal-enabled");
 
-  entries.forEach(entry => {
-
-    if (entry.isIntersecting) {
-
-      entry.target.classList.remove("play-animation");
-
-      void entry.target.offsetWidth;
-
-      entry.target.classList.add("play-animation");
-
-    } else {
-
-      entry.target.classList.remove("play-animation");
-
-    }
-
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -5% 0px"
   });
 
-}, {
-  threshold: 0.03
-});
-
-document.querySelectorAll(".reveal").forEach(element => {
-  observer.observe(element);
-});
+  document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach(element => {
+    element.classList.add("is-visible");
+  });
+}
 
 </script>
 
