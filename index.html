@@ -780,6 +780,24 @@ section { padding: 110px 0; }
 
 .contact .section-heading { margin: auto; }
 .contact .section-description { margin: 20px auto 30px; }
+.contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px auto 0;
+  padding: 13px 20px;
+  border: 1px solid rgba(120,165,255,.28);
+  border-radius: 999px;
+  color: #EAF1FF;
+  background: rgba(75,125,220,.10);
+  text-decoration: none;
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+.contact-phone:hover {
+  border-color: rgba(120,165,255,.65);
+  background: rgba(75,125,220,.18);
+  transform: translateY(-3px);
+}
 .contact-note {
   color: #8290A7;
   font-size: 12px;
@@ -1329,8 +1347,13 @@ footer {
       Connect With Us ↗
     </a>
 
+    <a class="contact-phone" href="tel:+923074203690" aria-label="Call Jackson Editz at 03074203690">
+      <span aria-hidden="true">☎</span>
+      <span>03074203690</span>
+    </a>
+
     <p class="contact-note">
-      For project inquiries, connect through our social channels.
+      For project inquiries, call us or connect through our social channels.
     </p>
 
   </div>
