@@ -1246,6 +1246,19 @@ if (
 }
 
 </script>
+<script>
+  // Always open website from Home section
+  if (window.location.hash === "#contact") {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
 
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+  });
+</script>
 </body>
 </html>
