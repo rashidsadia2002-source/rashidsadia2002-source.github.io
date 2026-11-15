@@ -44,6 +44,64 @@ button{font:inherit}
 ::selection{background:#568BFF;color:#fff}
 h1,h2,h3{text-wrap:balance}
 
+/* PREMIUM BACKGROUND LAYERS (static or transform-only, no blur filters) */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;opacity:.9}
+.aurora i:nth-child(1){width:70vmax;height:70vmax;left:-25vmax;top:-22vmax;background:radial-gradient(circle,rgba(46,104,230,.26),transparent 62%)}
+.aurora i:nth-child(2){width:62vmax;height:62vmax;right:-24vmax;top:18vh;background:radial-gradient(circle,rgba(112,82,232,.2),transparent 62%)}
+.aurora i:nth-child(3){width:58vmax;height:58vmax;left:18vw;bottom:-30vmax;background:radial-gradient(circle,rgba(0,170,255,.14),transparent 62%)}
+.aurora::after{
+  content:"";position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+}
+.cursor-glow{
+  position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;z-index:-1;
+  pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle,rgba(90,150,255,.14),transparent 65%);
+  transform:translate3d(-999px,-999px,0)
+}
+.cursor-glow.on{opacity:1}
+@keyframes drift1{to{transform:translate3d(6vmax,5vmax,0)}}
+@keyframes drift2{to{transform:translate3d(-7vmax,4vmax,0)}}
+@keyframes drift3{to{transform:translate3d(5vmax,-6vmax,0)}}
+@keyframes marquee{to{transform:translate3d(-50%,0,0)}}
+@keyframes ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.22,1.5);opacity:0}}
+
+/* MARQUEE STRIP (uses your existing service names) */
+.marquee{
+  overflow:hidden;padding:22px 0;border-bottom:1px solid rgba(151,184,255,.09);
+  background:linear-gradient(90deg,rgba(9,13,23,.9),rgba(14,24,42,.78),rgba(9,13,23,.9));
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)
+}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee-group{display:flex;flex-shrink:0;align-items:center}
+.marquee-group span{
+  display:flex;align-items:center;white-space:nowrap;
+  font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(20px,3.2vw,36px);letter-spacing:-.5px;
+  color:transparent;-webkit-text-stroke:1px rgba(150,195,255,.38)
+}
+.marquee-group span:nth-child(even){color:rgba(190,220,255,.88);-webkit-text-stroke:0}
+.marquee-group span::after{content:"✦";margin:0 clamp(22px,3.4vw,46px);font-size:.5em;color:var(--blue);-webkit-text-stroke:0;opacity:.8}
+
+/* FILM-FRAME CORNERS ON PORTFOLIO VISUALS */
+.project-visual{position:relative}
+.project-visual::before,.project-visual::after{
+  content:"";position:absolute;width:16px;height:16px;border:1px solid rgba(190,222,255,.5);opacity:.55;pointer-events:none;
+  transition:opacity .4s,transform .5s var(--ease)
+}
+.project-visual::before{left:6%;top:12%;border-right:0;border-bottom:0}
+.project-visual::after{right:6%;bottom:12%;border-left:0;border-top:0}
+
+/* SECTION EDGE GLOW + FOOTER LINE */
+.about::after,.portfolio::after,.faq::after{
+  content:"";position:absolute;left:10%;right:10%;top:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(140,203,255,.5),transparent)
+}
+.about,.faq{position:relative}
+footer{position:relative}
+footer::before{content:"";position:absolute;left:10%;right:10%;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(140,203,255,.45),transparent)}
+
 /* PROGRESS */
 .page-progress{
   position:fixed;top:0;left:0;width:100%;height:3px;z-index:2000;
@@ -401,6 +459,13 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
 
 /* DESKTOP-ONLY HOVER + AMBIENT MOTION */
 @media(hover:hover) and (min-width:701px){
+  .aurora i:nth-child(1){animation:drift1 34s ease-in-out infinite alternate}
+  .aurora i:nth-child(2){animation:drift2 40s ease-in-out infinite alternate}
+  .aurora i:nth-child(3){animation:drift3 46s ease-in-out infinite alternate}
+  .contact-whatsapp{position:relative}
+  .contact-whatsapp::after{content:"";position:absolute;inset:-1px;border-radius:30px;border:1px solid rgba(37,211,102,.5);pointer-events:none;animation:ring 3.2s ease-out infinite}
+  .project:hover .project-visual::before{opacity:1;transform:translate3d(-4px,-4px,0)}
+  .project:hover .project-visual::after{opacity:1;transform:translate3d(4px,4px,0)}
   .hero-orb .orb-core{animation:coreGlow 6s ease-in-out infinite alternate}
   .visual-card{animation:float 8s ease-in-out infinite}
   .card-bottom{animation-delay:-4s}
@@ -439,6 +504,11 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
   header,main,section,footer,nav{max-width:100%}
   header{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(9,13,23,.95)}
   body::after{-webkit-mask-image:none;mask-image:none;opacity:.07}
+  .aurora::after,.cursor-glow{display:none}
+  .aurora i{opacity:.75}
+  .marquee{padding:16px 0}
+  .marquee-track{animation-duration:30s}
+  .project-visual::before,.project-visual::after{width:12px;height:12px}
   nav{height:68px}
   .logo{min-width:0;max-width:calc(100% - 56px)}
   .logo img{height:48px;max-width:100%}
@@ -545,6 +615,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
 <body>
 
 <div class="page-progress" id="pageProgress"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
 <header id="siteHeader">
   <div class="container">
@@ -613,6 +685,15 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
     <span>Ideas Into Visual Stories</span>
   </div>
 </section>
+
+<!-- MARQUEE -->
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group"><span>Video Editing</span><span>Motion Graphics</span><span>Reels &amp; Shorts</span><span>Promotional Videos</span></div>
+    <div class="marquee-group"><span>Video Editing</span><span>Motion Graphics</span><span>Reels &amp; Shorts</span><span>Promotional Videos</span></div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 
@@ -961,6 +1042,21 @@ backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smo
 const finePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches && window.innerWidth > 700;
 
 if (finePointer && !reduceMotion) {
+  const glow = document.getElementById("cursorGlow");
+  let gx = 0, gy = 0, gTick = false;
+  window.addEventListener("pointermove", e => {
+    gx = e.clientX; gy = e.clientY;
+    if (!gTick) {
+      gTick = true;
+      requestAnimationFrame(() => {
+        glow.style.transform = "translate3d(" + gx + "px," + gy + "px,0)";
+        glow.classList.add("on");
+        gTick = false;
+      });
+    }
+  }, { passive: true });
+  document.addEventListener("pointerleave", () => glow.classList.remove("on"));
+
   const heroSection = document.querySelector(".hero");
   let px = 0, py = 0, heroTick = false;
   heroSection.addEventListener("pointermove", e => {
