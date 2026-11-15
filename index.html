@@ -1009,12 +1009,20 @@ footer {
   animation: portfolioFloatB 18s ease-in-out infinite alternate;
 }
 @keyframes portfolioFloatA {
-  from { transform: translate3d(0, 0, 0) scale(.92); }
-  to { transform: translate3d(70px, 55px, 0) scale(1.12); }
+  from { transform: translate(0, 0); }
+  to { transform: translate(35px, 25px); }
 }
+
 @keyframes portfolioFloatB {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(-65px, -45px, 0) scale(1.13); }
+  from { transform: translate(0, 0); }
+  to { transform: translate(-30px, -25px); }
+}
+
+@media (max-width: 700px) {
+  .portfolio::before,
+  .portfolio::after {
+    animation: none;
+  }
 }
 .portfolio > .container { position: relative; z-index: 1; }
 .portfolio .section-label { color: #a9ceff; }
