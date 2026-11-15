@@ -74,12 +74,14 @@ nav {
 }
 
 .logo span { color: var(--blue); }
+
 .logo img {
   height: 58px;
   width: auto;
   display: block;
   object-fit: contain;
 }
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -134,7 +136,6 @@ nav {
   isolation: isolate;
 }
 
-/* Animated hero atmosphere */
 .hero::before {
   content: "";
   position: absolute;
@@ -174,7 +175,8 @@ nav {
   to { background-position: 58px 58px; }
 }
 
-/* Right-side animated visual */
+/* HERO ORB */
+
 .hero-orb {
   position: absolute;
   width: 490px;
@@ -236,9 +238,27 @@ nav {
   box-shadow: 0 0 12px 4px rgba(75,164,255,.65);
 }
 
-.orb-spark.one { top: 13%; left: 25%; animation: sparkFloat 5s ease-in-out infinite; }
-.orb-spark.two { right: 12%; bottom: 28%; width: 6px; height: 6px; animation: sparkFloat 7s ease-in-out infinite reverse; }
-.orb-spark.three { left: 17%; bottom: 22%; width: 5px; height: 5px; animation: sparkFloat 6s ease-in-out infinite; }
+.orb-spark.one {
+  top: 13%;
+  left: 25%;
+  animation: sparkFloat 5s ease-in-out infinite;
+}
+
+.orb-spark.two {
+  right: 12%;
+  bottom: 28%;
+  width: 6px;
+  height: 6px;
+  animation: sparkFloat 7s ease-in-out infinite reverse;
+}
+
+.orb-spark.three {
+  left: 17%;
+  bottom: 22%;
+  width: 5px;
+  height: 5px;
+  animation: sparkFloat 6s ease-in-out infinite;
+}
 
 .visual-card {
   position: absolute;
@@ -296,19 +316,27 @@ nav {
 
 @keyframes ringRotate { to { transform: rotate(360deg); } }
 @keyframes ringRotateReverse { to { transform: rotate(-360deg); } }
+
 @keyframes corePulse {
   from { transform: scale(.96); filter: brightness(.9); }
   to { transform: scale(1.04); filter: brightness(1.18); }
 }
+
 @keyframes sparkFloat {
   0%, 100% { transform: translateY(0) scale(.8); opacity: .55; }
   50% { transform: translateY(-18px) scale(1.2); opacity: 1; }
 }
+
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-@keyframes barPulse { to { transform: scaleY(.55); opacity: .65; } }
+
+@keyframes barPulse {
+  to { transform: scaleY(.55); opacity: .65; }
+}
+
+/* HERO CONTENT */
 
 .hero-content {
   position: relative;
@@ -494,7 +522,7 @@ section { padding: 110px 0; }
   margin-top: 20px;
 }
 
-/* ABOUT — PREMIUM STUDIO INTRO */
+/* ABOUT */
 
 .about {
   position: relative;
@@ -732,6 +760,7 @@ section { padding: 110px 0; }
 }
 
 .project-bottom h3 { font-size: 21px; }
+
 .project-bottom p {
   color: #697386;
   font-size: 12px;
@@ -779,7 +808,11 @@ section { padding: 110px 0; }
 }
 
 .contact .section-heading { margin: auto; }
-.contact .section-description { margin: 20px auto 30px; }
+
+.contact .section-description {
+  margin: 20px auto 30px;
+}
+
 .contact-phone {
   display: inline-flex;
   align-items: center;
@@ -793,11 +826,13 @@ section { padding: 110px 0; }
   text-decoration: none;
   transition: border-color .3s ease, background .3s ease, transform .3s ease;
 }
+
 .contact-phone:hover {
   border-color: rgba(120,165,255,.65);
   background: rgba(75,125,220,.18);
   transform: translateY(-3px);
 }
+
 .contact-note {
   color: #8290A7;
   font-size: 12px;
@@ -824,7 +859,7 @@ footer {
   font-size: 12px;
 }
 
-/* SMOOTH REPEATED SCROLL REVEALS */
+/* SCROLL REVEALS */
 
 .reveal {
   opacity: 1;
@@ -834,9 +869,7 @@ footer {
 .reveal-enabled .reveal {
   opacity: 0;
   transform: translateY(14px);
-  transition:
-    opacity .45s ease,
-    transform .45s ease;
+  transition: opacity .45s ease, transform .45s ease;
 }
 
 .reveal-enabled .reveal.is-visible {
@@ -844,18 +877,10 @@ footer {
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal-enabled .reveal,
-  .reveal-enabled .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+/* MOBILE DESIGN */
 
-/* MOBILE */
+@media (max-width:700px) {
 
-@media(max-width:700px) {
   nav { height: 68px; }
 
   .menu-btn { display: block; }
@@ -878,111 +903,309 @@ footer {
 
   .nav-cta { display: none; }
 
+  /* MOBILE HERO */
+
   .hero {
-    min-height: 690px;
-    height: 90vh;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    padding: 126px 0 76px;
+    align-items: center;
+    background:
+      radial-gradient(ellipse at 92% 45%, rgba(38,105,255,.075), transparent 48%),
+      #080D17;
+  }
+
+  .hero::before {
+    inset: 0;
+    opacity: .28;
+    filter: blur(18px);
+    animation: none;
+  }
+
+  .hero::after {
+    opacity: .035;
+    mask-image: none;
+    animation: none;
   }
 
   .hero-content {
-    transform: translateY(-12px);
+    width: 90%;
+    transform: none;
+    animation: none;
   }
 
   .hero-kicker {
     font-size: 8px;
-    letter-spacing: 1.35px;
+    letter-spacing: 1.1px;
     gap: 7px;
-    margin-bottom: 14px;
+    margin-bottom: 15px;
+    line-height: 1.5;
   }
 
-  .hero-kicker::before { width: 18px; }
+  .hero-kicker::before {
+    width: 17px;
+    flex: 0 0 17px;
+  }
 
   .hero .eyebrow {
-    font-size: 9px;
-    letter-spacing: 1.6px;
-    padding: 8px 10px;
-    margin-bottom: 20px;
+    font-size: 8px;
+    letter-spacing: 1.15px;
+    padding: 7px 9px;
+    margin-bottom: 19px;
+    gap: 7px;
+  }
+
+  .hero .eyebrow::before {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
   }
 
   .hero h1 {
-    font-size: clamp(43px,11vw,66px);
-    letter-spacing: -3px;
-    line-height: 1.04;
-    text-align: left;
+    position: relative;
+    font-size: clamp(37px, 9.2vw, 47px);
+    letter-spacing: -1.9px;
+    line-height: 1.1;
+    max-width: 100%;
+    text-wrap: initial;
   }
 
-  .hero-desc { font-size: 14px; }
+  .hero h1 span { display: inline; }
+
+  .hero-desc {
+    max-width: 390px;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 19px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .hero-actions .btn {
+    padding: 11px 14px;
+    min-height: 42px;
+    font-size: 11px;
+    border-radius: 5px;
+  }
+
+  /* SMALL, SUBTLE ORB */
 
   .hero-orb {
-    width: 300px;
-    height: 300px;
-    right: -105px;
-    top: 35%;
-    opacity: .58;
+    width: 190px;
+    height: 190px;
+    right: -112px;
+    top: 31%;
+    opacity: .16;
+    transform: none !important;
+    transition: none;
   }
 
+  .hero-orb::before,
+  .hero-orb::after {
+    box-shadow: none;
+  }
+
+  .orb-core {
+    box-shadow: 0 0 22px rgba(48,132,255,.2);
+    animation: none;
+  }
+
+  /* REMOVE FLOATING LABELS ON MOBILE */
+
+  .orb-spark,
   .visual-card {
-    min-width: 130px;
-    padding: 10px 12px;
-    transform: scale(.82);
+    display: none !important;
   }
 
-  .card-top { right: 8px; top: 8%; }
-  .card-bottom { left: -8px; bottom: 7%; }
+  .hero-bottom { display: none; }
 
-  .hero::after { opacity: .08; }
+  /* OTHER SECTIONS */
 
-  .hero-bottom { font-size: 9px; }
+  section { padding: 65px 0; }
 
-  section { padding: 80px 0; }
+  .section-heading {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+  }
+
+  .section-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 14px;
+  }
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 30px;
   }
 
-  .about-mark { min-height: 270px; }
-  .about-mark::before { width: 205px; height: 205px; }
-  .about-mark::after { width: 255px; height: 255px; }
-  .about-mark-label { left: 16px; bottom: 16px; font-size: 8px; }
-  .about-points { gap: 8px; }
-  .about-point { font-size: 10px; padding: 9px 10px; }
+  .about-mark { min-height: 250px; }
+
+  .about-mark::before {
+    width: 190px;
+    height: 190px;
+  }
+
+  .about-mark::after {
+    width: 235px;
+    height: 235px;
+  }
+
+  .about-mark strong {
+    font-size: 105px;
+    letter-spacing: -9px;
+  }
+
+  .about-mark-label {
+    left: 16px;
+    bottom: 16px;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .about-points {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .about-point {
+    font-size: 10px;
+    padding: 9px 10px;
+  }
 
   .services-grid,
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
 
-  .service-card { min-height: 200px; }
+  .services-grid {
+    gap: 13px;
+    margin-top: 32px;
+  }
 
-  .project { min-height: 240px; }
+  .service-card {
+    min-height: 0;
+    padding: 23px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+    margin-top: 23px;
+  }
+
+  .service-card p,
+  .process-item p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .portfolio-grid {
+    gap: 15px;
+    margin-top: 32px;
+  }
+
+  .project {
+    min-height: 220px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .project-visual {
+    font-size: clamp(32px, 9vw, 43px);
+  }
+
+  .project-bottom h3 { font-size: 18px; }
 
   .process-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 28px;
+    margin-top: 35px;
+  }
+
+  .process-item { padding-top: 20px; }
+
+  .process-item h3 {
+    font-size: 19px;
+    margin-top: 17px;
+  }
+
+  .contact .section-heading { font-size: 29px; }
+
+  .contact-whatsapp {
+    max-width: 100%;
+    gap: 8px;
+    padding: 11px 15px;
+    font-size: 13px;
+  }
+
+  .contact-whatsapp svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .contact-number { font-size: 12px; }
+
+  .contact-note {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-inner .logo img {
+    height: 46px !important;
   }
 }
 
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    animation-duration: .01ms !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+/* VERY SMALL PHONES */
+
+@media (max-width:380px) {
+
+  .hero {
+    padding-top: 116px;
+    padding-bottom: 65px;
   }
-  .hero-orb { transform: none !important; }
-  .hero .eyebrow::before { animation: none !important; }
+
+  .hero h1 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-actions .btn { width: auto; }
+
+  .hero-kicker {
+    font-size: 7px;
+    letter-spacing: .85px;
+  }
 }
 
-/* ===== JACKSON EDITZ | PREMIUM BLUE PORTFOLIO ===== */
+/* PORTFOLIO DESIGN */
+
 .portfolio {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(ellipse at 12% 18%, rgba(91, 157, 255, .24), transparent 42%),
-    radial-gradient(ellipse at 88% 82%, rgba(38, 112, 238, .22), transparent 43%),
+    radial-gradient(ellipse at 12% 18%, rgba(91,157,255,.24), transparent 42%),
+    radial-gradient(ellipse at 88% 82%, rgba(38,112,238,.22), transparent 43%),
     linear-gradient(135deg, #102747 0%, #173b69 52%, #102746 100%);
 }
+
 .portfolio::before,
 .portfolio::after {
   content: "";
@@ -992,93 +1215,121 @@ footer {
   border-radius: 50%;
   filter: blur(2px);
 }
+
 .portfolio::before {
   width: 520px;
   height: 520px;
   top: -210px;
   left: -170px;
-  background: radial-gradient(circle, rgba(111, 177, 255, .18), transparent 68%);
+  background: radial-gradient(circle, rgba(111,177,255,.18), transparent 68%);
   animation: portfolioFloatA 15s ease-in-out infinite alternate;
 }
+
 .portfolio::after {
   width: 620px;
   height: 620px;
   right: -250px;
   bottom: -300px;
-  background: radial-gradient(circle, rgba(57, 131, 255, .18), transparent 68%);
+  background: radial-gradient(circle, rgba(57,131,255,.18), transparent 68%);
   animation: portfolioFloatB 18s ease-in-out infinite alternate;
 }
+
 @keyframes portfolioFloatA {
-  from { transform: translate(0, 0); }
-  to { transform: translate(35px, 25px); }
+  from { transform: translate(0,0); }
+  to { transform: translate(35px,25px); }
 }
 
 @keyframes portfolioFloatB {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-30px, -25px); }
+  from { transform: translate(0,0); }
+  to { transform: translate(-30px,-25px); }
 }
 
-@media (max-width: 700px) {
-  .portfolio::before,
-  .portfolio::after {
-    animation: none;
-  }
+.portfolio > .container {
+  position: relative;
+  z-index: 1;
 }
-.portfolio > .container { position: relative; z-index: 1; }
+
 .portfolio .section-label { color: #a9ceff; }
 .portfolio .section-heading { color: #fff; }
 .portfolio .section-description { color: #d0def2; }
+
 .portfolio-grid { gap: 22px; }
+
 .portfolio .project {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(179, 213, 255, .25);
+  border: 1px solid rgba(179,213,255,.25);
   border-radius: 16px;
-  background: linear-gradient(145deg, rgba(75, 132, 202, .34), rgba(13, 39, 72, .82));
-  box-shadow: 0 16px 42px rgba(3, 19, 43, .2);
+  background: linear-gradient(145deg, rgba(75,132,202,.34), rgba(13,39,72,.82));
+  box-shadow: 0 16px 42px rgba(3,19,43,.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease, border-color .45s ease;
 }
+
 .portfolio .project::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(115deg, transparent 20%, rgba(190, 222, 255, .12) 48%, transparent 72%);
+  background: linear-gradient(115deg, transparent 20%, rgba(190,222,255,.12) 48%, transparent 72%);
   transform: translateX(-110%);
   transition: transform .75s ease, opacity .35s ease;
 }
+
 .portfolio .project:hover {
   transform: translateY(-8px);
-  border-color: rgba(184, 219, 255, .7);
-  box-shadow: 0 24px 52px rgba(2, 17, 40, .34), 0 0 25px rgba(99, 169, 255, .16);
+  border-color: rgba(184,219,255,.7);
+  box-shadow: 0 24px 52px rgba(2,17,40,.34), 0 0 25px rgba(99,169,255,.16);
 }
-.portfolio .project:hover::before { opacity: 1; transform: translateX(110%); }
+
+.portfolio .project:hover::before {
+  opacity: 1;
+  transform: translateX(110%);
+}
+
 .portfolio .project-top { color: #c6ddff; }
+
 .portfolio .project-visual {
   color: #c0dcff;
-  text-shadow: 0 0 28px rgba(105, 175, 255, .42);
+  text-shadow: 0 0 28px rgba(105,175,255,.42);
   transition: transform .55s cubic-bezier(.2,.7,.2,1), text-shadow .55s ease;
 }
+
 .portfolio .project:hover .project-visual {
   transform: scale(1.055);
-  text-shadow: 0 0 38px rgba(125, 190, 255, .62);
+  text-shadow: 0 0 38px rgba(125,190,255,.62);
 }
+
 .portfolio .project-bottom h3 { color: #fff; }
 .portfolio .project-bottom p { color: #c7d9f0; }
-@media (max-width: 700px) {
-  .portfolio-grid { gap: 16px; }
-  .portfolio .project { border-radius: 13px; }
+
+/* MOBILE PORTFOLIO PERFORMANCE */
+
+@media (max-width:700px) {
+  .portfolio::before,
+  .portfolio::after {
+    animation: none;
+  }
+
+  .portfolio-grid { gap: 15px; }
+
+  .portfolio .project {
+    border-radius: 13px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .portfolio .project:hover { transform: none; }
+  .portfolio .project::before { display: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .portfolio::before, .portfolio::after { animation: none; }
-  .portfolio .project, .portfolio .project-visual, .portfolio .project::before { transition: none; }
-}
+
+/* WHATSAPP */
 
 .contact-whatsapp {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -1099,24 +1350,12 @@ footer {
   width: 21px;
   height: 21px;
 }
+
 .contact-whatsapp:hover {
   transform: translateY(-3px);
   background: rgba(37,211,102,.22);
   border-color: #25D366;
   box-shadow: 0 8px 25px rgba(37,211,102,.15);
-}
-.contact-number {
-  margin-top: 8px;
-  font-size: 14px;
-  text-align: center;
-  color: #ffffff;
-}
-.contact-whatsapp {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 .contact-number {
@@ -1128,57 +1367,23 @@ footer {
   color: #ffffff;
   vertical-align: middle;
 }
- /* MOBILE TYPOGRAPHY & SPACING FIX */
-@media (max-width: 700px) {
-  .section-heading {
-    font-size: 30px;
-    letter-spacing: -1.2px;
-    line-height: 1.2;
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
   }
 
-  .section-description {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-top: 14px;
-  }
-
-  .service-card {
-    padding: 24px;
-  }
-
-  .service-card h3 {
-    font-size: 21px;
-    margin-top: 25px;
-  }
-
-  .service-card p,
-  .process-item p {
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .project {
-    padding: 20px;
-  }
-
-  .project-bottom h3 {
-    font-size: 19px;
-  }
-
-  .process-item h3 {
-    font-size: 19px;
-    margin-top: 20px;
-  }
-
-  .contact-note {
-    font-size: 11px;
-    line-height: 1.6;
-  }
-
-  section {
-    padding: 65px 0;
-  }
-} 
+  .hero-orb { transform: none !important; }
+  .hero .eyebrow::before { animation: none !important; }
+  .portfolio::before,
+  .portfolio::after { animation: none !important; }
+}
 </style>
 </head>
 
@@ -1187,9 +1392,10 @@ footer {
 <header>
   <div class="container">
     <nav>
+
       <a href="#home" class="logo">
-  <img src="logo.png" alt="Jackson Editz Logo" style="height: 90px; width: auto; object-fit: contain;">
-</a>
+        <img src="logo.png" alt="Jackson Editz Logo" style="height:90px;width:auto;object-fit:contain;">
+      </a>
 
       <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
@@ -1201,16 +1407,23 @@ footer {
       </div>
 
       <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+
     </nav>
   </div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
+
   <div class="hero-orb" aria-hidden="true">
+
     <div class="orb-core"></div>
+
     <span class="orb-spark one"></span>
     <span class="orb-spark two"></span>
     <span class="orb-spark three"></span>
@@ -1225,11 +1438,18 @@ footer {
       <small>Motion design</small>
       <strong>Ideas in motion <span style="color:#72b7ff;">●</span></strong>
     </div>
+
   </div>
 
   <div class="container hero-content">
-    <div class="hero-kicker">Video Editing / Motion Design / Visual Stories</div>
-    <div class="eyebrow">Independent Creative Studio</div>
+
+    <div class="hero-kicker">
+      Video Editing / Motion Design / Visual Stories
+    </div>
+
+    <div class="eyebrow">
+      Independent Creative Studio
+    </div>
 
     <h1>
       We Make Videos<br>
@@ -1245,15 +1465,20 @@ footer {
       <a href="#portfolio" class="btn btn-primary">Explore Our Work ↗</a>
       <a href="#services" class="btn btn-secondary">Discover Services</a>
     </div>
+
   </div>
 
   <div class="container hero-bottom">
     <span>Creative Editing Studio</span>
     <span>Ideas Into Visual Stories</span>
   </div>
+
 </section>
 
+<!-- ABOUT -->
+
 <section class="about" id="about">
+
   <div class="container about-grid">
 
     <div class="about-mark reveal">
@@ -1262,6 +1487,7 @@ footer {
     </div>
 
     <div class="about-copy reveal">
+
       <div class="section-label">01 / About Us</div>
 
       <h2 class="section-heading">
@@ -1280,15 +1506,21 @@ footer {
         <span class="about-point">Motion Graphics</span>
         <span class="about-point">Visual Storytelling</span>
       </div>
+
     </div>
 
   </div>
+
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
+
   <div class="container">
 
     <div class="reveal">
+
       <div class="section-label">02 / What We Do</div>
 
       <h2 class="section-heading">
@@ -1300,6 +1532,7 @@ footer {
         Visual solutions designed to help creators and businesses
         communicate their ideas with impact.
       </p>
+
     </div>
 
     <div class="services-grid">
@@ -1329,13 +1562,19 @@ footer {
       </article>
 
     </div>
+
   </div>
+
 </section>
 
+<!-- PORTFOLIO -->
+
 <section class="portfolio" id="portfolio">
+
   <div class="container">
 
     <div class="reveal">
+
       <div class="section-label">03 / Selected Work</div>
 
       <h2 class="section-heading">
@@ -1345,13 +1584,15 @@ footer {
       <p class="section-description">
         A space for our best creative projects and visual experiments.
       </p>
+
     </div>
 
     <div class="portfolio-grid">
 
       <article class="project reveal">
         <div class="project-top">
-          <span>Project 01</span><span>Video</span>
+          <span>Project 01</span>
+          <span>Video</span>
         </div>
         <div class="project-visual">STORY.</div>
         <div class="project-bottom">
@@ -1362,7 +1603,8 @@ footer {
 
       <article class="project reveal">
         <div class="project-top">
-          <span>Project 02</span><span>Motion</span>
+          <span>Project 02</span>
+          <span>Motion</span>
         </div>
         <div class="project-visual">MOTION.</div>
         <div class="project-bottom">
@@ -1373,7 +1615,8 @@ footer {
 
       <article class="project reveal">
         <div class="project-top">
-          <span>Project 03</span><span>Brand</span>
+          <span>Project 03</span>
+          <span>Brand</span>
         </div>
         <div class="project-visual">CREATE.</div>
         <div class="project-bottom">
@@ -1384,7 +1627,8 @@ footer {
 
       <article class="project reveal">
         <div class="project-top">
-          <span>Project 04</span><span>Creative</span>
+          <span>Project 04</span>
+          <span>Creative</span>
         </div>
         <div class="project-visual">IMAGINE.</div>
         <div class="project-bottom">
@@ -1400,9 +1644,13 @@ footer {
     </p>
 
   </div>
+
 </section>
 
+<!-- PROCESS -->
+
 <section id="process">
+
   <div class="container">
 
     <div class="reveal">
@@ -1431,11 +1679,15 @@ footer {
       </div>
 
     </div>
+
   </div>
+
 </section>
 
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
+
   <div class="container reveal">
 
     <div class="section-label">05 / Get In Touch</div>
@@ -1461,6 +1713,7 @@ footer {
 
       <span>Chat on WhatsApp</span>
       <p class="contact-number">03074203690</p>
+
     </a>
 
     <p class="contact-note">
@@ -1468,24 +1721,31 @@ footer {
     </p>
 
   </div>
-</section>
 
+</section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
+
   <div class="container footer-inner">
+
     <a href="#home" class="logo">
-  <img src="logo.png" alt="Jackson Editz Logo">
-</a>
+      <img src="logo.png" alt="Jackson Editz Logo">
+    </a>
 
     <p>© <span id="year"></span> Jackson Editz. All rights reserved.</p>
 
     <p>Made with creativity.</p>
+
   </div>
+
 </footer>
 
 <script>
+
 /* MOBILE NAVIGATION */
 
 const menuBtn = document.getElementById("menuBtn");
@@ -1493,6 +1753,7 @@ const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("open");
+
   menuBtn.textContent =
     navLinks.classList.contains("open") ? "×" : "☰";
 });
@@ -1504,17 +1765,25 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
-/* SUBTLE HERO LIGHT MOVEMENT */
+/* SUBTLE HERO LIGHT MOVEMENT - DESKTOP ONLY */
+
 const heroSection = document.querySelector(".hero");
-if (heroSection && window.matchMedia("(pointer: fine)").matches &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+if (
+  heroSection &&
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
   heroSection.addEventListener("pointermove", (event) => {
     const rect = heroSection.getBoundingClientRect();
+
     const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
     const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+
     heroSection.style.setProperty("--pointer-x", `${x}px`);
     heroSection.style.setProperty("--pointer-y", `${y}px`);
   });
+
   heroSection.addEventListener("pointerleave", () => {
     heroSection.style.setProperty("--pointer-x", "0px");
     heroSection.style.setProperty("--pointer-y", "0px");
@@ -1522,24 +1791,31 @@ if (heroSection && window.matchMedia("(pointer: fine)").matches &&
 }
 
 /* CURRENT YEAR */
+
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
 /* REPEATED SCROLL REVEALS */
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-    "IntersectionObserver" in window) {
+if (
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+  "IntersectionObserver" in window
+) {
 
   document.documentElement.classList.add("reveal-enabled");
 
   const revealObserver = new IntersectionObserver((entries) => {
+
     entries.forEach(entry => {
+
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
       } else {
         entry.target.classList.remove("is-visible");
       }
+
     });
+
   }, {
     threshold: 0.08,
     rootMargin: "0px 0px -3% 0px"
@@ -1550,9 +1826,11 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
   });
 
 } else {
+
   document.querySelectorAll(".reveal").forEach(element => {
     element.classList.add("is-visible");
   });
+
 }
 
 </script>
