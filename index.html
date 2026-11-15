@@ -609,9 +609,57 @@ img,svg{
     -webkit-backdrop-filter:none;backdrop-filter:none
   }
 }
+
+/* MOBILE OVERFLOW FIXES (mobile only, 320px - 700px) */
+@media(max-width:700px){
+  /* Prevent any horizontal scrolling of the page */
+  html{max-width:100%;overflow-x:hidden}
+  body{max-width:100%;overflow-x:clip}
+
+  /* Let long words wrap instead of pushing past the screen */
+  h1,h2,h3,p,a,span,small,strong,button{
+    overflow-wrap:break-word;word-wrap:break-word
+  }
+
+  /* Header: logo can never push the menu button off screen */
+  .logo{min-width:0;max-width:calc(100% - 56px)}
+  .logo img{max-width:100%}
+  .menu-btn{flex-shrink:0}
+
+  /* Hero text blocks stay inside the container */
+  .hero-content{max-width:90%}
+  .hero-kicker,.eyebrow{max-width:100%}
+  .hero-kicker::before{flex-shrink:0}
+  .hero h1,.hero-desc,.section-heading,.section-description{max-width:100%}
+
+  /* Grids: allow columns to shrink below their content width */
+  .about-grid,.faq-grid,
+  .services-grid,.portfolio-grid,.process-grid{
+    grid-template-columns:minmax(0,1fr)
+  }
+
+  /* Project cards */
+  .project-top{flex-wrap:wrap;gap:4px 12px}
+  .project-visual{max-width:100%;min-width:0;text-align:center}
+  .project-bottom{min-width:0}
+
+  /* FAQ rows */
+  .faq-question{min-width:0}
+  .faq-question span:first-child{flex:1 1 auto;min-width:0}
+  .faq-question span:last-child{flex-shrink:0}
+  .faq-answer,.faq-answer>div{min-width:0}
+
+  /* Contact */
+  .contact-whatsapp{max-width:100%;text-align:center}
+  .contact-whatsapp span{min-width:0}
+
+  /* Footer */
+  .footer-inner>*{min-width:0;max-width:100%}
+}
+
 @media(max-width:380px){
   .hero{padding-top:115px;padding-bottom:65px}
-  .hero h1{font-size:35px;letter-spacing:-1.5px}
+  .hero h1{font-size:clamp(28px,10vw,35px);letter-spacing:-1.5px}
 .hero-actions{
   flex-direction:column;
   align-items:stretch;
