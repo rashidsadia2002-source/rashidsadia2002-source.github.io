@@ -80,24 +80,42 @@ header.scrolled .logo img{transform:scale(.9)}
 .nav-cta{padding:12px 19px;border:1px solid rgba(139,177,255,.32);border-radius:8px;background:linear-gradient(120deg,rgba(86,139,255,.14),rgba(86,139,255,.05));font-size:13px;font-weight:600;transition:transform .3s var(--ease),border-color .3s,background .3s}
 .menu-btn{display:none;background:none;border:0;font-size:27px;cursor:pointer;width:44px;height:44px}
 
-/* HERO */
-.hero{min-height:760px;height:100vh;max-height:950px;display:flex;align-items:center;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 78% 55%,rgba(38,105,255,.2),transparent 38%),radial-gradient(ellipse at 88% 18%,rgba(0,183,255,.08),transparent 32%)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(125,165,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(125,165,255,.12) 1px,transparent 1px);background-size:58px 58px;-webkit-mask-image:linear-gradient(90deg,transparent 25%,#000);mask-image:linear-gradient(90deg,transparent 25%,#000)}
-.hero-orb{position:absolute;width:470px;height:470px;right:3%;top:22%;pointer-events:none;opacity:.9;transform:translate3d(var(--px,0),var(--py,0),0);transition:transform .5s var(--ease);contain:layout}
-.hero-orb::before,.hero-orb::after{content:"";position:absolute;inset:8%;border:1px solid rgba(86,139,255,.3);border-radius:50%}
-.hero-orb::before{border-top-color:#75BDFF;animation:rotate 26s linear infinite}
-.hero-orb::after{inset:19%;border-left-color:#00BEFF;animation:rotateBack 20s linear infinite}
-.orb-core{position:absolute;inset:29%;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(177,220,255,.95),transparent 12%),radial-gradient(circle at 38% 35%,#398bff,#1450bd 32%,#071a43 68%,#050b19);box-shadow:0 0 40px rgba(48,132,255,.45),0 0 90px rgba(35,106,255,.22),inset -18px -20px 38px rgba(0,0,0,.5)}
-.orb-spark{position:absolute;width:8px;height:8px;border-radius:50%;background:#a8d9ff;box-shadow:0 0 12px 4px rgba(75,164,255,.55);animation:pulse 3s ease-in-out infinite}
-.orb-spark.one{top:13%;left:25%}.orb-spark.two{right:12%;bottom:28%;animation-delay:-1s}.orb-spark.three{left:17%;bottom:22%;animation-delay:-2s}
-.visual-card{position:absolute;z-index:2;padding:14px 18px;min-width:170px;border:1px solid rgba(151,190,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(22,40,70,.92),rgba(12,24,44,.92));box-shadow:0 18px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);color:#eaf2ff}
-.visual-card small{display:block;color:#8fa9d3;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
-.visual-card strong{font-size:13px;font-weight:600}
-.card-top{top:16%;right:0}.card-bottom{bottom:13%;left:0}
-.mini-bars{display:flex;align-items:end;gap:4px;height:22px;margin-top:9px}
-.mini-bars i{display:block;width:5px;border-radius:4px;background:linear-gradient(180deg,#83caff,#347cff)}
-.mini-bars i:nth-child(1){height:9px}.mini-bars i:nth-child(2){height:17px}.mini-bars i:nth-child(3){height:12px}.mini-bars i:nth-child(4){height:21px}.mini-bars i:nth-child(5){height:14px}
-.rec{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff5a6a;margin-right:6px;animation:pulse 1.4s ease-in-out infinite}
+/* HERO VIDEO BACKGROUND */
+.hero{
+  min-height:760px;
+  height:100vh;
+  max-height:950px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background:#090D17;
+}
+
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:0;
+  pointer-events:none;
+}
+
+.hero-video-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(
+    90deg,
+    rgba(5,10,20,.72),
+    rgba(5,10,20,.38),
+    rgba(5,10,20,.48)
+  );
+}
 .hero-content{position:relative;z-index:2;padding-top:20px}
 .hero-content>*{animation:fadeUp .9s var(--ease) both}
 .hero-kicker{animation-delay:.05s!important;display:flex;align-items:center;gap:10px;margin-bottom:18px;color:#91A4C2;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
@@ -392,11 +410,11 @@ html:not(.ready) .hero-content,html:not(.ready) .hero-content *{animation-play-s
 
 <main>
 <section class="hero" id="home">
-  <div class="hero-orb" aria-hidden="true">
-    <div class="orb-core"></div><span class="orb-spark one"></span><span class="orb-spark two"></span><span class="orb-spark three"></span>
-    <div class="visual-card card-top"><small>Creative Studio</small><strong>Visual storytelling</strong><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
-    <div class="visual-card card-bottom"><small><span class="rec"></span>Now editing</small><strong>Ideas in motion <span style="color:#72b7ff">●</span></strong></div>
-  </div>
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+  <source src="background.mp4" type="video/mp4">
+</video>
+
+<div class="hero-video-overlay"></div>
   <div class="container hero-content">
     <div class="hero-kicker">Video Editing / Motion Design / Visual Stories</div>
     <div class="eyebrow">Independent Creative Studio</div>
