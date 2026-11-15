@@ -610,37 +610,52 @@ img,svg{
   }
 }
 
-/* MOBILE OVERFLOW FIXES (mobile only, 320px - 700px) */
+/* MOBILE OVERFLOW FIXES v2 (mobile only, 320px - 700px) */
 @media(max-width:700px){
-  /* Prevent any horizontal scrolling of the page */
-  html{max-width:100%;overflow-x:hidden}
-  body{max-width:100%;overflow-x:clip}
+  /* Page can never be wider than the screen */
+  html{width:100%;max-width:100%;overflow-x:hidden}
+  body{width:100%;max-width:100%;overflow-x:hidden}
+  header,main,section,footer,nav{max-width:100%}
+  .container{width:90%;max-width:90%}
 
-  /* Let long words wrap instead of pushing past the screen */
-  h1,h2,h3,p,a,span,small,strong,button{
-    overflow-wrap:break-word;word-wrap:break-word
+  /* Hero: block layout so text can never be pushed wider than the screen
+     (flex items refuse to shrink below their longest word) */
+  .hero{display:block}
+  .hero-content{width:90%;max-width:90%;margin-left:auto;margin-right:auto}
+  .hero-kicker,.eyebrow{max-width:100%}
+  .hero-kicker::before{flex-shrink:0}
+  .hero h1{text-wrap:wrap;max-width:100%;letter-spacing:-1.2px}
+  .hero-desc{max-width:100%}
+
+  /* Every piece of text may wrap, even very long words */
+  h1,h2,h3,p,a,span,small,strong,button,div{
+    overflow-wrap:anywhere;word-wrap:break-word
   }
+  .section-heading,.section-description{max-width:100%}
+  .section-heading{letter-spacing:-.6px}
+  .about-mark strong,.about-mark strong span{overflow-wrap:normal}
 
-  /* Header: logo can never push the menu button off screen */
+  /* Header */
   .logo{min-width:0;max-width:calc(100% - 56px)}
   .logo img{max-width:100%}
   .menu-btn{flex-shrink:0}
 
-  /* Hero text blocks stay inside the container */
-  .hero-content{max-width:90%}
-  .hero-kicker,.eyebrow{max-width:100%}
-  .hero-kicker::before{flex-shrink:0}
-  .hero h1,.hero-desc,.section-heading,.section-description{max-width:100%}
-
-  /* Grids: allow columns to shrink below their content width */
+  /* Grids: columns may shrink below their content width */
   .about-grid,.faq-grid,
   .services-grid,.portfolio-grid,.process-grid{
     grid-template-columns:minmax(0,1fr)
   }
+  .about-grid>*,.faq-grid>*,
+  .services-grid>*,.portfolio-grid>*,.process-grid>*{min-width:0;max-width:100%}
+
+  /* About */
+  .about-mark-label{max-width:calc(100% - 30px);letter-spacing:1px;overflow-wrap:break-word}
+  .about-points{max-width:100%}
+  .about-point{max-width:100%}
 
   /* Project cards */
-  .project-top{flex-wrap:wrap;gap:4px 12px}
-  .project-visual{max-width:100%;min-width:0;text-align:center}
+  .project-top{flex-wrap:wrap;gap:4px 12px;min-width:0}
+  .project-visual{max-width:100%;min-width:0;text-align:center;letter-spacing:-1.5px;overflow-wrap:break-word}
   .project-bottom{min-width:0}
 
   /* FAQ rows */
@@ -648,6 +663,7 @@ img,svg{
   .faq-question span:first-child{flex:1 1 auto;min-width:0}
   .faq-question span:last-child{flex-shrink:0}
   .faq-answer,.faq-answer>div{min-width:0}
+  .faq-answer p{padding-right:0}
 
   /* Contact */
   .contact-whatsapp{max-width:100%;text-align:center}
@@ -659,17 +675,21 @@ img,svg{
 
 @media(max-width:380px){
   .hero{padding-top:115px;padding-bottom:65px}
-  .hero h1{font-size:clamp(28px,10vw,35px);letter-spacing:-1.5px}
-.hero-actions{
-  flex-direction:column;
-  align-items:stretch;
-  width:100%;
+  .hero h1{font-size:clamp(28px,10vw,35px);letter-spacing:-1px}
+  .section-heading{font-size:27px}
+  .contact .section-heading{font-size:26px}
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+    width:100%;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+    justify-content:center;
+  }
 }
 
-.hero-actions .btn{
-  width:100%;
-  justify-content:center;
-}
 /* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
