@@ -824,27 +824,24 @@ footer {
   font-size: 12px;
 }
 
-/* SMOOTH ONE-TIME SCROLL REVEALS */
+/* SMOOTH REPEATED SCROLL REVEALS */
 
 .reveal {
   opacity: 1;
   transform: none;
 }
 
-/* Only hide elements when JavaScript is available to reveal them. */
 .reveal-enabled .reveal {
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
+  transform: translateY(14px);
   transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.2,.7,.2,1);
-  will-change: opacity, transform;
+    opacity .45s ease,
+    transform .45s ease;
 }
 
 .reveal-enabled .reveal.is-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-  will-change: auto;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -853,7 +850,6 @@ footer {
     opacity: 1;
     transform: none;
     transition: none;
-    will-change: auto;
   }
 }
 
