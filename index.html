@@ -541,27 +541,69 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
   .footer-inner .logo img{height:43px}
   .back-top{right:14px;bottom:14px;width:38px;height:38px}
 
-  /* MOBILE SCROLL ANIMATIONS */
-  .reveal-enabled .reveal{
-    transition-duration:.8s;
-  }
+/* MOBILE SCROLL ANIMATIONS - FIXED */
 
-  .reveal-enabled .reveal[data-motion="left"]{
-    transform:translate3d(-32px,0,0) scale(.985);
-  }
+.reveal-enabled .reveal,
+.reveal-enabled .reveal[data-motion="left"],
+.reveal-enabled .reveal[data-motion="right"],
+.reveal-enabled .reveal[data-motion="up"],
+.reveal-enabled .reveal[data-motion="down"]{
+  opacity:0;
+  transform:translate3d(0,22px,0);
+  transition:opacity .65s ease,transform .65s ease;
+}
 
-  .reveal-enabled .reveal[data-motion="right"]{
-    transform:translate3d(32px,0,0) scale(.985);
-  }
+.reveal-enabled .reveal.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+  /* MOBILE LAYOUT FIX */
 
-  .reveal-enabled .reveal[data-motion="up"]{
-    transform:translate3d(0,30px,0) scale(.985);
-  }
+.hero-actions{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  width:100%;
+  gap:10px;
+}
 
-  .reveal-enabled .reveal[data-motion="down"]{
-    transform:translate3d(0,-25px,0) scale(.985);
-  }
+.hero-actions .btn{
+  width:auto;
+  max-width:100%;
+  min-width:0;
+  white-space:normal;
+  text-align:center;
+  transform:none;
+}
 
+.about-grid,
+.services-grid,
+.portfolio-grid,
+.process-grid,
+.faq-grid{
+  width:100%;
+  min-width:0;
+}
+
+.service-card,
+.project,
+.process-item,
+.about-copy,
+.about-mark,
+.faq-list{
+  min-width:0;
+  max-width:100%;
+}
+
+.hero-orb{
+  pointer-events:none;
+}
+
+img,svg{
+  max-width:100%;
+}
   /* Keep mobile glass effects lightweight */
   header,.nav-links,.btn-secondary,.about-point,.service-card,.project,.back-top{
     -webkit-backdrop-filter:none;backdrop-filter:none
@@ -570,11 +612,16 @@ a:focus-visible,button:focus-visible{outline:2px solid #8CCBFF;outline-offset:4p
 @media(max-width:380px){
   .hero{padding-top:115px;padding-bottom:65px}
   .hero h1{font-size:35px;letter-spacing:-1.5px}
-  .hero-actions{flex-direction:column;align-items:flex-start}
-  .hero-actions .btn{width:auto}
-  .hero-kicker{font-size:7px;letter-spacing:.8px}
+.hero-actions{
+  flex-direction:column;
+  align-items:stretch;
+  width:100%;
 }
 
+.hero-actions .btn{
+  width:100%;
+  justify-content:center;
+}
 /* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
@@ -1049,7 +1096,7 @@ document.querySelectorAll(".services-grid .service-card, .portfolio-grid .projec
   card.style.setProperty("--delay", (index % 2) * 90 + "ms");
 });
 
-/* REPEATING SCROLL REVEALS */
+/* MOBILE-FRIENDLY SCROLL REVEALS */
 
 if (
   "IntersectionObserver" in window &&
@@ -1057,7 +1104,6 @@ if (
 ) {
   document.documentElement.classList.add("reveal-enabled");
 
-  // Har element ko uski position ke mutabiq animation direction dena
   document.querySelectorAll(".reveal").forEach(element => {
 
     if (
@@ -1088,19 +1134,15 @@ if (
     entries.forEach(entry => {
 
       if (entry.isIntersecting) {
-        // Element screen par aaye to animation start
         entry.target.classList.add("is-visible");
-      } else {
-        // Screen se bahar jaye to animation reset
-        // Dobara scroll karne par animation repeat hogi
-        entry.target.classList.remove("is-visible");
+        revealObserver.unobserve(entry.target);
       }
 
     });
 
   }, {
-    threshold:0.12,
-    rootMargin:"0px 0px -20px 0px"
+    threshold:0.08,
+    rootMargin:"0px 0px -30px 0px"
   });
 
   document.querySelectorAll(".reveal").forEach(element => {
