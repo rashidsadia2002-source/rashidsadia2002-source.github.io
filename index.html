@@ -93,12 +93,6 @@ section{padding:100px 0;position:relative}
 .portfolio{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 12% 18%,#5b9dff20,transparent 42%),radial-gradient(ellipse at 88% 82%,#5b4cc01c,transparent 43%),linear-gradient(135deg,#102747,#15345B 52%,#102746);border-block:1px solid #b4d5ff22}
 .portfolio>.container{position:relative;z-index:1}
 .portfolio .section-label{color:#A9CEFF}.portfolio .section-description{color:#D0DEF2}
-.showreel{margin-top:34px;border:1px solid #b3d5ff55;border-radius:16px;overflow:hidden;background:#071326;box-shadow:0 18px 45px #03132b66}
-.video-frame{position:relative;background:#030914;aspect-ratio:16/9}
-.video-frame video{display:block;width:100%;height:100%;object-fit:contain;background:#030914}
-.video-placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:25px;color:#c6ddff;background:radial-gradient(circle at 50% 45%,#5a9fff30,transparent 60%),#071326}
-.video-placeholder strong{display:block;font:800 clamp(24px,5vw,46px) Manrope,sans-serif}
-.video-placeholder span{display:block;color:#9fb6d8;font-size:12px;margin-top:10px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .filters button{padding:9px 16px;border:1px solid #b3d5ff55;border-radius:30px;background:#ffffff0d;color:#D0DEF2;font-size:12px;font-weight:600;cursor:pointer}
 .filters button.on{background:linear-gradient(120deg,#447EFF,#4F9DFF);color:white}
@@ -107,7 +101,6 @@ section{padding:100px 0;position:relative}
 .project.hide{display:none}
 .project-video{position:relative;aspect-ratio:9/16;max-height:390px;background:#030914;border-radius:9px;overflow:hidden}
 .project-video video{width:100%;height:100%;display:block;object-fit:contain;background:#030914}
-.project-video .video-placeholder{border-radius:9px}
 .project-top{display:flex;justify-content:space-between;color:#C6DDFF;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:2px 3px}
 .project-bottom{padding:0 3px 5px}
 .project-bottom h3{color:#fff;font-size:19px}
@@ -210,18 +203,14 @@ footer{padding:28px 0;border-top:1px solid var(--line);background:#070b14b3}
 <div class="tl-track"><b class="c1" style="left:1%;width:26%">Hook</b><b class="c1" style="left:29%;width:34%">Main story</b><b class="c1" style="left:65%;width:33%">Call to action</b></div><div class="tl-track"><b class="c2" style="left:10%;width:22%">Titles</b><b class="c2" style="left:40%;width:18%">Transitions</b><b class="c2" style="left:72%;width:24%">Motion graphics</b></div><div class="tl-track"><b class="c3" style="left:1%;width:48%">Music &amp; sound design</b><b class="c3" style="left:52%;width:46%">Colour grade &amp; polish</b></div><div class="tl-foot"><span>Pacing</span><span>Captions</span><span>Colour</span><span>Sound</span><span>Platform-ready export</span></div></div>
 </div></section>
 <section class="portfolio" id="portfolio"><div class="container">
-<div class="reveal"><div class="section-label">04 / Selected Work</div><h2 class="section-heading">Watch our work in action.</h2><p class="section-description">Play the showreel or explore individual projects below.</p></div>
-<!-- SHOWREEL: replace showreel.mp4 with your main portfolio video filename -->
-<div class="showreel reveal"><div class="video-frame"><video controls playsinline preload="metadata" poster="showreel-poster.jpg"><source src="showreel.mp4" type="video/mp4">Your browser does not support HTML video.</video></div></div>
-<div class="filters reveal" id="filters"><button class="on" data-f="all">All</button><button data-f="Video">Video</button><button data-f="Motion">Motion</button><button data-f="Brand">Brand</button><button data-f="Creative">Creative</button></div>
+<div class="reveal"><div class="section-label">04 / Selected Work</div><h2 class="section-heading">Watch our work in action.</h2><p class="section-description">Explore our three selected video projects below.</p></div>
+<div class="filters reveal" id="filters"><button class="on" data-f="all">All</button><button data-f="Video">Video</button><button data-f="Motion">Motion</button><button data-f="Brand">Brand</button></div>
 <div class="portfolio-grid">
-<!-- Each project has its own playable video. Change the MP4 filename and project title. -->
-<article class="project reveal" data-c="Video"><div class="project-top"><span>Project 01</span><span>Video</span></div><div class="project-video"><video controls playsinline preload="metadata" poster="project1.jpg"><source src="video1.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Short-form Editing</h3><p>Reels / Shorts / Social Content</p></div></article>
-<article class="project reveal" data-c="Motion"><div class="project-top"><span>Project 02</span><span>Motion</span></div><div class="project-video"><video controls playsinline preload="metadata" poster="project2.jpg"><source src="video2.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Motion Graphics</h3><p>Animation / Visual Design</p></div></article>
-<article class="project reveal" data-c="Brand"><div class="project-top"><span>Project 03</span><span>Brand</span></div><div class="project-video"><video controls playsinline preload="metadata" poster="project3.jpg"><source src="video3.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Promotional Content</h3><p>Brand / Product Videos</p></div></article>
-<article class="project reveal" data-c="Creative"><div class="project-top"><span>Project 04</span><span>Creative</span></div><div class="project-video"><video controls playsinline preload="metadata" poster="project4.jpg"><source src="video4.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Creative Projects</h3><p>Visual Experiments / Concepts</p></div></article>
+<article class="project reveal" data-c="Video"><div class="project-top"><span>Project 01</span><span>Video</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%201.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Short-form Editing</h3><p>Reels / Shorts / Social Content</p></div></article>
+<article class="project reveal" data-c="Motion"><div class="project-top"><span>Project 02</span><span>Motion</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%202.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Motion Graphics</h3><p>Animation / Visual Design</p></div></article>
+<article class="project reveal" data-c="Brand"><div class="project-top"><span>Project 03</span><span>Brand</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%203.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Promotional Content</h3><p>Brand / Product Videos</p></div></article>
 </div>
-<p class="portfolio-note">Video files are loaded from the same folder as this index.html. Add your MP4 files using the filenames shown in the HTML comments. You can also change the project names to match your work.</p>
+<p class="portfolio-note">Your three MP4 videos are displayed above. Keep <strong>video 1.mp4</strong>, <strong>video 2.mp4</strong> and <strong>video 3.mp4</strong> in the same folder as this index.html file.</p>
 </div></section>
 <section id="process"><div class="container"><div class="reveal"><div class="section-label">05 / Our Approach</div><h2 class="section-heading">From idea to final frame.</h2></div><div class="process-grid">
 <div class="process-item reveal"><span>STEP 01</span><h3>Understand</h3><p>We understand your vision, content and creative requirements.</p></div>
@@ -264,7 +253,6 @@ if("IntersectionObserver"in w&&!w.matchMedia("(prefers-reduced-motion: reduce)")
 $("#filters").addEventListener("click",e=>{const button=e.target.closest("button");if(!button)return;$$(".filters button").forEach(b=>b.classList.toggle("on",b===button));const filter=button.dataset.f;$$(".project").forEach(card=>card.classList.toggle("hide",filter!=="all"&&card.dataset.c!==filter))});
 $$(".faq-question").forEach(button=>button.addEventListener("click",()=>{const item=button.closest(".faq-item"),wasOpen=item.classList.contains("open");$$(".faq-item").forEach(row=>{row.classList.remove("open");row.querySelector("button").setAttribute("aria-expanded","false")});if(!wasOpen){item.classList.add("open");button.setAttribute("aria-expanded","true")}}));
 $("#form").addEventListener("submit",e=>{e.preventDefault();const message=`Hi Jackson Editz! I'm ${$("#fn").value.trim()}.\nProject: ${$("#ft").value}\n\n${$("#fm").value.trim()}`;w.open("https://wa.me/923074203690?text="+encodeURIComponent(message),"_blank","noopener")});
-/* Pause other videos when a visitor starts playing one. */
 $$("video").forEach(video=>video.addEventListener("play",()=>$$("video").forEach(other=>{if(other!==video)other.pause()})));
 })();
 </script>
