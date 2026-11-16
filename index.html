@@ -4,15 +4,83 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#090D17">
-<meta name="description" content="Jackson Editz — professional video editing, motion graphics, reels, shorts and promotional videos.">
-<meta property="og:title" content="Jackson Editz | Creative Video Studio">
-<meta property="og:description" content="Video editing, motion graphics, reels and promotional videos.">
+
+<!-- Primary SEO -->
+<title>Jackson Editz | Video Editing, Reels & Motion Graphics</title>
+<meta name="description" content="Jackson Editz is a creative video editing studio offering professional video editing, motion graphics, YouTube Shorts, Instagram Reels and promotional videos.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Jackson Editz">
+<link rel="canonical" href="https://rashidsadia2002-source.github.io/">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jackson Editz">
+<meta property="og:title" content="Jackson Editz | Video Editing & Motion Graphics Studio">
+<meta property="og:description" content="Professional video editing, motion graphics, Reels, Shorts and promotional videos by Jackson Editz.">
+<meta property="og:url" content="https://rashidsadia2002-source.github.io/">
+<meta property="og:image" content="https://rashidsadia2002-source.github.io/logo.png">
+<meta property="og:image:alt" content="Jackson Editz creative video editing studio logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jackson Editz | Video Editing & Motion Graphics">
+<meta name="twitter:description" content="Professional video editing, motion graphics, Reels, Shorts and promotional videos.">
+<meta name="twitter:image" content="https://rashidsadia2002-source.github.io/logo.png">
+
 <link rel="icon" href="logo.png">
-<title>Jackson Editz | Creative Video Studio</title>
+<link rel="apple-touch-icon" href="logo.png">
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="fKNZAKv1c_UUqCNDg6-y4O3w5zD71RGvRZ7C-z-wtFc">
+
+<!-- Structured data: organization, website and services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rashidsadia2002-source.github.io/#organization",
+      "name": "Jackson Editz",
+      "url": "https://rashidsadia2002-source.github.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rashidsadia2002-source.github.io/logo.png"
+      },
+      "description": "Jackson Editz is a creative video editing studio offering video editing, motion graphics, short-form social media videos and promotional content."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rashidsadia2002-source.github.io/#website",
+      "url": "https://rashidsadia2002-source.github.io/",
+      "name": "Jackson Editz",
+      "publisher": {
+        "@id": "https://rashidsadia2002-source.github.io/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://rashidsadia2002-source.github.io/#video-editing",
+      "name": "Video Editing Services",
+      "serviceType": [
+        "Professional Video Editing",
+        "Motion Graphics",
+        "YouTube Shorts and Instagram Reels Editing",
+        "Promotional Video Production"
+      ],
+      "provider": {
+        "@id": "https://rashidsadia2002-source.github.io/#organization"
+      },
+      "url": "https://rashidsadia2002-source.github.io/#services",
+      "description": "Video editing, motion graphics, short-form social media content and promotional videos for creators and businesses."
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-<meta name="google-site-verification" content="fKNZAKv1c_UUqCNDg6-y4O3w5zD71RGvRZ7C-z-wtFc">
+
 <style>
 :root{--bg:#090D17;--blue:#568BFF;--blue2:#8CCBFF;--white:#F5F7FC;--muted:#A0AABD;--line:rgba(255,255,255,.1);--ease:cubic-bezier(.16,1,.3,1);color-scheme:dark}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -170,7 +238,6 @@ footer{padding:28px 0;border-top:1px solid var(--line);background:#070b14b3}
 @keyframes float{50%{transform:translateY(-10px)}}
 @keyframes ring{from{transform:scale(1);opacity:.7}to{transform:scale(1.8);opacity:0}}
 @keyframes scrub{from{left:22px}to{left:calc(100% - 22px)}}
-/* buttons (hero keeps its original look) */
 .btn{position:relative;overflow:hidden}
 .btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-130%);transition:transform .8s var(--ease);pointer-events:none}
 .btn:hover:after{transform:translateX(130%)}
@@ -184,34 +251,26 @@ footer{padding:28px 0;border-top:1px solid var(--line);background:#070b14b3}
 .wa-fab{transition:transform .3s var(--ease)}.wa-fab:hover{transform:scale(1.1)}
 .back-top:hover{transform:translateY(-3px);background:#1d3355}
 .contact-whatsapp{transition:transform .3s var(--ease),background .3s}.contact-whatsapp:hover{transform:translateY(-3px);background:#25d36630}
-/* section labels draw their line in */
 .reveal .section-label:before{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .3s}
 .reveal.is-visible .section-label:before{transform:none}
-/* about logo mark floats */
 .about-mark strong{animation:float 6s ease-in-out infinite}
-/* service cards: cursor spotlight + nudge */
 .service-card:before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#8cc4ff26,transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none}
 .service-card:hover:before{opacity:1}
 .service-card h3{transition:transform .4s var(--ease)}.service-card:hover h3{transform:translateX(6px)}
 .service-number{transition:letter-spacing .4s var(--ease)}.service-card:hover .service-number{letter-spacing:3px}
-/* timeline: clips draw in, playhead scrubs */
 .tl{position:relative}
 .tl-track:nth-of-type(4){--t:.25s}.tl-track:nth-of-type(5){--t:.5s}
 .tl-track b{clip-path:inset(0 100% 0 0);transition:clip-path .9s var(--ease) calc(var(--t,0s) + var(--i,0)*.2s)}
 .tl-track b:nth-child(2){--i:1}.tl-track b:nth-child(3){--i:2}
 .tl.is-visible .tl-track b{clip-path:inset(0)}
 .tl.is-visible:after{content:"";position:absolute;top:var(--pt,74px);height:var(--ph,160px);width:2px;background:#8CCBFF;box-shadow:0 0 14px #8CCBFF;left:22px;pointer-events:none;animation:scrub 7s 1.6s linear infinite}
-/* process: top line draws in */
 .process-item{position:relative}
 .process-item:before{content:"";position:absolute;top:-1px;left:0;width:100%;height:1px;background:#8cccff99;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) calc(var(--d,0s) + .2s)}
 .process-item.is-visible:before{transform:scaleX(1)}
-/* marquee pauses on hover */
 .marquee:hover .mq{animation-play-state:paused}
-/* FAQ answer fades in */
 .faq-question{transition:color .25s}.faq-question:hover{color:var(--blue2)}
 .faq-answer p{opacity:0;transform:translateY(-8px);transition:opacity .4s,transform .4s var(--ease)}
 .faq-item.open .faq-answer p{opacity:1;transform:none;transition-delay:.12s}
-/* form focus */
 input,select,textarea{transition:border-color .3s,box-shadow .3s,background .3s}
 input:focus,select:focus,textarea:focus{outline:0;border-color:#8CCBFF;background:#ffffff14;box-shadow:0 0 0 3px #568bff33}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -225,62 +284,62 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:#8CCBFF;backgroun
 <a href="#contact" class="nav-cta">Let's Talk ↗</a><button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
 </nav></div></header>
 <main>
-<section class="hero" id="home">
-<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg"><source src="background.mp4" type="video/mp4"></video>
+<section class="hero" id="home" aria-labelledby="hero-title">
+<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true"><source src="background.mp4" type="video/mp4"></video>
 <div class="hero-video-overlay"></div>
 <div class="container hero-content">
 <div class="hero-kicker">Video Editing / Motion Design / Visual Stories</div>
 <div class="eyebrow">Independent Creative Studio</div>
-<h1>We Make Videos<br>That <span class="grad">Move People.</span></h1>
-<p class="hero-desc">We turn creative ideas into powerful videos through professional editing, motion graphics and visual storytelling.</p>
+<h1 id="hero-title">Professional Video Editing<br>That <span class="grad">Moves People.</span></h1>
+<p class="hero-desc">Jackson Editz turns creative ideas into engaging videos through professional video editing, motion graphics, YouTube Shorts, Instagram Reels and promotional video production.</p>
 <div class="hero-actions"><a href="#portfolio" class="btn btn-primary">Explore Our Work ↗</a><a href="#services" class="btn btn-secondary">Discover Services</a></div>
 </div><div class="container hero-bottom"><span>Creative Editing Studio</span><span>Ideas Into Visual Stories</span></div>
 </section>
 <div class="marquee" aria-hidden="true"><div class="mq"><span>Video Editing</span><span>Motion Graphics</span><span>Reels &amp; Shorts</span><span>Promotional Videos</span><span>Video Editing</span><span>Motion Graphics</span><span>Reels &amp; Shorts</span><span>Promotional Videos</span></div><div class="mq rev"><span>Visual Stories</span><span>Colour Grading</span><span>Sound Design</span><span>Creative Direction</span><span>Visual Stories</span><span>Colour Grading</span><span>Sound Design</span><span>Creative Direction</span></div></div>
 <section class="about" id="about"><div class="container about-grid">
 <div class="about-mark reveal"><strong>J<span>E.</span></strong><div class="about-mark-label">Jackson Editz · Creative Studio</div></div>
-<div class="reveal"><div class="section-label">01 / About Us</div><h2 class="section-heading">Creativity meets <span>visual storytelling.</span></h2><p class="section-description">Jackson Editz is a creative video editing studio focused on turning ideas into engaging visual experiences. From short-form content to promotional videos, we aim to make every frame meaningful.</p><div class="about-points"><span class="about-point">Video Editing</span><span class="about-point">Motion Graphics</span><span class="about-point">Visual Storytelling</span></div></div>
+<div class="reveal"><div class="section-label">01 / About Us</div><h2 class="section-heading">Creative video editing meets <span>visual storytelling.</span></h2><p class="section-description">Jackson Editz is a creative video editing studio focused on turning ideas into engaging visual experiences. We create short-form social media content, motion graphics and promotional videos for creators and businesses.</p><div class="about-points"><span class="about-point">Video Editing</span><span class="about-point">Motion Graphics</span><span class="about-point">Visual Storytelling</span></div></div>
 </div></section>
-<section id="services"><div class="container"><div class="reveal"><div class="section-label">02 / What We Do</div><h2 class="section-heading">Creative services.<br>Made to stand out.</h2><p class="section-description">Visual solutions designed to help creators and businesses communicate their ideas with impact.</p></div>
+<section id="services"><div class="container"><div class="reveal"><div class="section-label">02 / What We Do</div><h2 class="section-heading">Video editing services.<br>Made to stand out.</h2><p class="section-description">Creative video solutions designed to help creators and businesses communicate their ideas with impact.</p></div>
 <div class="services-grid">
-<article class="service-card reveal"><div class="service-number">01 / EDITING</div><h3>Video Editing</h3><p>Professional editing, storytelling, pacing and polished visual sequences.</p></article>
-<article class="service-card reveal"><div class="service-number">02 / MOTION</div><h3>Motion Graphics</h3><p>Creative animations, transitions and motion elements that bring ideas to life.</p></article>
-<article class="service-card reveal"><div class="service-number">03 / SOCIAL</div><h3>Reels &amp; Shorts</h3><p>Engaging vertical content for YouTube Shorts, Instagram Reels and TikTok.</p></article>
-<article class="service-card reveal"><div class="service-number">04 / BRAND</div><h3>Promotional Videos</h3><p>Visual promotions and creative video content for products and businesses.</p></article>
+<article class="service-card reveal"><div class="service-number">01 / EDITING</div><h3>Professional Video Editing</h3><p>Polished video editing with engaging storytelling, clean pacing, sound design and refined visual sequences.</p></article>
+<article class="service-card reveal"><div class="service-number">02 / MOTION</div><h3>Motion Graphics</h3><p>Creative animations, transitions and motion design elements that bring ideas, brands and stories to life.</p></article>
+<article class="service-card reveal"><div class="service-number">03 / SOCIAL</div><h3>YouTube Shorts &amp; Instagram Reels</h3><p>Engaging vertical videos edited for YouTube Shorts, Instagram Reels and TikTok social content.</p></article>
+<article class="service-card reveal"><div class="service-number">04 / BRAND</div><h3>Promotional Videos</h3><p>Product, brand and business promotional videos created to present your message with clarity and impact.</p></article>
 </div></div></section>
 <section class="workflow"><div class="container"><div class="reveal"><div class="section-label">03 / Inside The Edit</div><h2 class="section-heading">Every cut, planned frame by frame.</h2><p class="section-description">Footage, motion and sound come together on one timeline, shaped until the story lands.</p></div>
 <div class="tl reveal"><div class="tl-bar"><div class="tl-dots"><i></i><i></i><i></i></div><span>Jackson Editz · Sequence 01</span></div><div class="tl-ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span><span>00:20</span><span>00:25</span><span>00:30</span></div>
 <div class="tl-track"><b class="c1" style="left:1%;width:26%">Hook</b><b class="c1" style="left:29%;width:34%">Main story</b><b class="c1" style="left:65%;width:33%">Call to action</b></div><div class="tl-track"><b class="c2" style="left:10%;width:22%">Titles</b><b class="c2" style="left:40%;width:18%">Transitions</b><b class="c2" style="left:72%;width:24%">Motion graphics</b></div><div class="tl-track"><b class="c3" style="left:1%;width:48%">Music &amp; sound design</b><b class="c3" style="left:52%;width:46%">Colour grade &amp; polish</b></div><div class="tl-foot"><span>Pacing</span><span>Captions</span><span>Colour</span><span>Sound</span><span>Platform-ready export</span></div></div>
 </div></section>
 <section class="portfolio" id="portfolio"><div class="container">
-<div class="reveal"><div class="section-label">04 / Selected Work</div><h2 class="section-heading">Watch our work in action.</h2><p class="section-description">Explore our three selected video projects below.</p></div>
+<div class="reveal"><div class="section-label">04 / Selected Work</div><h2 class="section-heading">Watch our video editing work.</h2><p class="section-description">Explore selected video editing, motion graphics and promotional content projects.</p></div>
 <div class="filters reveal" id="filters"><button class="on" data-f="all">All</button><button data-f="Video">Video</button><button data-f="Motion">Motion</button><button data-f="Brand">Brand</button><button data-f="Creative">Creative</button></div>
 <div class="portfolio-grid">
-<article class="project reveal" data-c="Video"><div class="project-top"><span>Project 01</span><span>Video</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%201.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Short-form Editing</h3><p>Reels / Shorts / Social Content</p></div></article>
-<article class="project reveal" data-c="Motion"><div class="project-top"><span>Project 02</span><span>Motion</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%202.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Motion Graphics</h3><p>Animation / Visual Design</p></div></article>
-<article class="project reveal" data-c="Brand"><div class="project-top"><span>Project 03</span><span>Brand</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%203.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Promotional Content</h3><p>Brand / Product Videos</p></div></article>
-<article class="project reveal" data-c="Creative"><div class="project-top"><span>Project 04</span><span>Creative</span></div><div class="project-video"><video controls playsinline preload="metadata"><source src="video%204.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Creative Video</h3><p>Creative Editing / Visual Content</p></div></article>
+<article class="project reveal" data-c="Video"><div class="project-top"><span>Project 01</span><span>Video</span></div><div class="project-video"><video controls playsinline preload="metadata" aria-label="Jackson Editz short-form video editing portfolio example"><source src="video%201.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Short-form Video Editing</h3><p>YouTube Shorts / Instagram Reels / Social Content</p></div></article>
+<article class="project reveal" data-c="Motion"><div class="project-top"><span>Project 02</span><span>Motion</span></div><div class="project-video"><video controls playsinline preload="metadata" aria-label="Jackson Editz motion graphics portfolio example"><source src="video%202.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Motion Graphics</h3><p>Animation / Visual Design</p></div></article>
+<article class="project reveal" data-c="Brand"><div class="project-top"><span>Project 03</span><span>Brand</span></div><div class="project-video"><video controls playsinline preload="metadata" aria-label="Jackson Editz promotional video portfolio example"><source src="video%203.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Promotional Video</h3><p>Brand / Product Videos</p></div></article>
+<article class="project reveal" data-c="Creative"><div class="project-top"><span>Project 04</span><span>Creative</span></div><div class="project-video"><video controls playsinline preload="metadata" aria-label="Jackson Editz creative video editing portfolio example"><source src="video%204.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><div class="project-bottom"><h3>Creative Video Editing</h3><p>Creative Editing / Visual Content</p></div></article>
 </div>
-<p class="portfolio-note">Your four MP4 videos are displayed above. Keep <strong>video 1.mp4</strong>, <strong>video 2.mp4</strong>, <strong>video 3.mp4</strong> and <strong>video 4.mp4</strong> in the same folder as this index.html file.</p>
+<p class="portfolio-note">Portfolio videos: keep <strong>video 1.mp4</strong>, <strong>video 2.mp4</strong>, <strong>video 3.mp4</strong> and <strong>video 4.mp4</strong> in the same folder as this index.html file.</p>
 </div></section>
 <section id="process"><div class="container"><div class="reveal"><div class="section-label">05 / Our Approach</div><h2 class="section-heading">From idea to final frame.</h2></div><div class="process-grid">
-<div class="process-item reveal"><span>STEP 01</span><h3>Understand</h3><p>We understand your vision, content and creative requirements.</p></div>
-<div class="process-item reveal"><span>STEP 02</span><h3>Create</h3><p>We shape the idea through editing, design and visual storytelling.</p></div>
-<div class="process-item reveal"><span>STEP 03</span><h3>Deliver</h3><p>We refine the final video and prepare it for your platform.</p></div>
+<div class="process-item reveal"><span>STEP 01</span><h3>Understand</h3><p>We understand your vision, content, audience and creative requirements.</p></div>
+<div class="process-item reveal"><span>STEP 02</span><h3>Create</h3><p>We shape your idea through video editing, motion design and visual storytelling.</p></div>
+<div class="process-item reveal"><span>STEP 03</span><h3>Deliver</h3><p>We refine the final video and prepare it for your chosen platform.</p></div>
 </div></div></section>
-<section class="faq" id="faq"><div class="container faq-grid"><div class="reveal"><div class="section-label">06 / Frequently Asked</div><h2 class="section-heading">A few things you might want to know.</h2><p class="section-description">Have a different question? Send us a message and tell us about your project.</p></div>
+<section class="faq" id="faq"><div class="container faq-grid"><div class="reveal"><div class="section-label">06 / Frequently Asked</div><h2 class="section-heading">Video editing questions, answered.</h2><p class="section-description">Have a different question? Send us a message and tell us about your project.</p></div>
 <div class="faq-list reveal">
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What type of videos do you edit?</span><span>+</span></button><div class="faq-answer"><div><p>We work on short-form videos, social media content, motion graphics and promotional videos.</p></div></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How can I start a project?</span><span>+</span></button><div class="faq-answer"><div><p>Simply contact us through WhatsApp and share your idea, requirements and reference material.</p></div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What type of videos do you edit?</span><span>+</span></button><div class="faq-answer"><div><p>We work on short-form videos, YouTube Shorts, Instagram Reels, social media content, motion graphics and promotional videos.</p></div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How can I start a project?</span><span>+</span></button><div class="faq-answer"><div><p>Contact Jackson Editz through WhatsApp and share your idea, requirements and any reference material.</p></div></div></div>
 <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Can I request changes to my video?</span><span>+</span></button><div class="faq-answer"><div><p>Yes. You can discuss your revision requirements with us before the project begins.</p></div></div></div>
 <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How do I get a project quote?</span><span>+</span></button><div class="faq-answer"><div><p>Send us your project details on WhatsApp. We can discuss the scope and provide a suitable quote.</p></div></div></div>
 </div></div></section>
-<section class="contact" id="contact"><div class="container reveal"><div class="section-label">07 / Get In Touch</div><h2 class="section-heading">Have a project in mind?<br>Let's create something.</h2><p class="section-description">Tell us about your next video project. Fill this in and WhatsApp opens with your message ready.</p>
+<section class="contact" id="contact"><div class="container reveal"><div class="section-label">07 / Get In Touch</div><h2 class="section-heading">Need a video editor?<br>Let's create something.</h2><p class="section-description">Tell Jackson Editz about your next video editing project. Fill this in and WhatsApp opens with your message ready.</p>
 <form id="form"><div class="row"><input id="fn" placeholder="Your name" autocomplete="name" required><select id="ft" aria-label="Project type"><option>Video Editing</option><option>Motion Graphics</option><option>Reels &amp; Shorts</option><option>Promotional Video</option></select></div><textarea id="fm" placeholder="Tell us about your idea" required></textarea><button class="btn btn-primary" type="submit">Send on WhatsApp ↗</button></form>
-<a class="contact-whatsapp" href="https://wa.me/923074203690" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.7l6.5-1.7A12.7 12.7 0 1 0 16 3.2zm0 23.2a10.4 10.4 0 0 1-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.5 10.5 0 1 1 16 26.4z"/></svg><span>Chat on WhatsApp</span><span>03074203690</span></a><p class="contact-note">For project inquiries, message us on WhatsApp.</p>
+<a class="contact-whatsapp" href="https://wa.me/923074203690" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.7l6.5-1.7A12.7 12.7 0 1 0 16 3.2zm0 23.2a10.4 10.4 0 0 1-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.5 10.5 0 1 1 16 26.4z"/></svg><span>Chat on WhatsApp</span><span>03074203690</span></a><p class="contact-note">For video editing and project inquiries, message us on WhatsApp.</p>
 </div></section>
 </main>
-<footer><div class="container footer-inner"><a href="#home" class="logo"><img src="logo.png" alt="Jackson Editz Logo"></a><p>© <span id="year"></span> Jackson Editz. All rights reserved.</p><p>Made with creativity.</p></div></footer>
+<footer><div class="container footer-inner"><a href="#home" class="logo"><img src="logo.png" alt="Jackson Editz Logo"></a><p>© <span id="year"></span> Jackson Editz. All rights reserved.</p><p>Video Editing &amp; Motion Graphics Studio.</p></div></footer>
 <a class="wa-fab" href="https://wa.me/923074203690" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.7l6.5-1.7A12.7 12.7 0 1 0 16 3.2z"/></svg></a>
 <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 <script>
